@@ -1,0 +1,109 @@
+#1 [docker-server/django internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 32B 0.1s done
+#1 DONE 0.1s
+
+#2 [docker-server/nginx internal] load .dockerignore
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.2s
+
+#3 [docker-server/django internal] load .dockerignore
+#3 transferring context: 2B 0.1s done
+#3 DONE 0.2s
+
+#4 [docker-server/nginx internal] load build definition from Dockerfile
+#4 transferring dockerfile: 32B 0.0s done
+#4 DONE 0.2s
+
+#5 [docker-server/django internal] load metadata for docker.io/library/python:3.6.7
+#5 DONE 1.9s
+
+#6 [docker-server/nginx internal] load metadata for docker.io/library/nginx:latest
+#6 DONE 1.8s
+
+#7 [docker-server/nginx 1/4] FROM docker.io/library/nginx:latest@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f
+#7 DONE 0.0s
+
+#8 [docker-server/django 1/8] FROM docker.io/library/python:3.6.7@sha256:4ea1013f8409b41712f7a1c10d7603969068fab4422cef58e6446ae5ee81fe28
+#8 DONE 0.0s
+
+#9 [docker-server/nginx internal] load build context
+#9 transferring context: 66B 0.0s done
+#9 DONE 0.1s
+
+#10 [docker-server/django internal] load build context
+#10 ...
+
+#11 [docker-server/nginx 2/4] COPY nginx.conf /etc/nginx/nginx.conf
+#11 CACHED
+
+#12 [docker-server/nginx 3/4] COPY nginx-app.conf /etc/nginx/sites-available/
+#12 CACHED
+
+#13 [docker-server/nginx 4/4] RUN mkdir -p /etc/nginx/sites-enabled/    && ln -s /etc/nginx/sites-available/nginx-app.conf /etc/nginx/sites-enabled/
+#13 CACHED
+
+#14 [docker-server/nginx] exporting to image
+#14 exporting layers done
+#14 writing image sha256:191c1915012e582855a48728e69de854fe0b5189395bea23fcb0c764e984c8f0 0.0s done
+#14 naming to docker.io/docker-server/nginx done
+#14 DONE 0.1s
+
+#10 [docker-server/django internal] load build context
+#10 transferring context: 79.63MB 1.2s done
+#10 DONE 1.2s
+
+#15 [docker-server/django 2/8] RUN apt-get -y update
+#15 CACHED
+
+#16 [docker-server/django 3/8] RUN apt-get -y install vim
+#16 CACHED
+
+#17 [docker-server/django 4/8] RUN mkdir /srv/docker-server
+#17 CACHED
+
+#18 [docker-server/django 5/8] ADD . /srv/docker-server
+#18 DONE 1.7s
+
+#19 [docker-server/django 6/8] WORKDIR /srv/docker-server
+#19 DONE 0.1s
+
+#20 [docker-server/django 7/8] RUN pip install --upgrade pip
+#20 2.577 Collecting pip
+#20 3.074   Downloading https://files.pythonhosted.org/packages/a4/6d/6463d49a933f547439d6b5b98b46af8742cc03ae83543e4d7688c2420f8b/pip-21.3.1-py3-none-any.whl (1.7MB)
+#20 3.502 Installing collected packages: pip
+#20 3.503   Found existing installation: pip 18.1
+#20 3.677     Uninstalling pip-18.1:
+#20 5.385       Successfully uninstalled pip-18.1
+#20 6.623 Successfully installed pip-21.3.1
+#20 DONE 7.6s
+
+#21 [docker-server/django 8/8] RUN pip install -r requirements.txt
+#21 1.413 Collecting asgiref==3.2.7
+#21 1.635   Downloading asgiref-3.2.7-py2.py3-none-any.whl (19 kB)
+#21 2.043 Collecting Django==3.0.5
+#21 2.098   Downloading Django-3.0.5-py3-none-any.whl (7.5 MB)
+#21 2.920 Collecting pytz==2019.3
+#21 2.978   Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+#21 3.110 Collecting sqlparse==0.3.1
+#21 3.166   Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+#21 3.275 Collecting uwsgi
+#21 3.331   Downloading uwsgi-2.0.21.tar.gz (808 kB)
+#21 3.688   Preparing metadata (setup.py): started
+#21 4.248   Preparing metadata (setup.py): finished with status 'done'
+#21 4.501 ERROR: Could not find a version that satisfies the requirement cs_Oracle==8.3 (from versions: none)
+#21 4.502 ERROR: No matching distribution found for cs_Oracle==8.3
+#21 ERROR: executor failed running [/bin/sh -c pip install -r requirements.txt]: exit code: 1
+------
+ > [docker-server/django 8/8] RUN pip install -r requirements.txt:
+#21 2.920 Collecting pytz==2019.3
+#21 2.978   Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+#21 3.110 Collecting sqlparse==0.3.1
+#21 3.166   Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+#21 3.275 Collecting uwsgi
+#21 3.331   Downloading uwsgi-2.0.21.tar.gz (808 kB)
+#21 3.688   Preparing metadata (setup.py): started
+#21 4.248   Preparing metadata (setup.py): finished with status 'done'
+#21 4.501 ERROR: Could not find a version that satisfies the requirement cs_Oracle==8.3 (from versions: none)
+#21 4.502 ERROR: No matching distribution found for cs_Oracle==8.3
+------
